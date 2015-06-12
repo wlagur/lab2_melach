@@ -1,0 +1,34 @@
+{% extends "index.html"  %}
+
+{% block login %}
+<a href="/logout">LOGOUT</a>
+{% endblock %}
+
+{% block adder %}
+
+<form action="/add" method="post">
+ {{ form.sum }}
+ {{ form.debtor }}
+ {{ form.creditor }}
+ {{ form.submit }}
+</form>
+
+{% endblock %}
+
+{% block content %}
+ <table>
+{% for demand in objects %}
+<tr>
+
+<td>{{ demand.id }}</td>
+<td>{{ demand.sum }}</td>
+<td>{{ demand.Debtor.name }}</td>
+<td>{{ demand.Creditor.name }}</td>
+<td><a href="/update/{{ demand.id }}">Update</a></td>
+<td><a href="/delete/{{ demand.id }}">Delete</a></td>
+
+</tr>
+
+{% endfor %}
+</table>
+{% endblock %}

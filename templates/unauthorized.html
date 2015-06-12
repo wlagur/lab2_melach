@@ -1,0 +1,26 @@
+{% extends "index.html"  %}
+
+{% block login %}
+<a href="/login">LOGIN WITH GITHUB</a>
+{% endblock %}
+
+{% block adder %}
+{% endblock %}
+
+
+{% block content %}
+ <table>
+{% for demand in objects %}
+<tr>
+
+<td>{{ demand.id }}</td>
+<td>{{ demand.sum }}</td>
+<td>{{ demand.Debtor.name }}</td>
+<td>{{ demand.Creditor.name }}</td>
+</tr>
+
+{% endfor %}
+</table>
+
+
+{% endblock %}
